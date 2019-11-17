@@ -27,9 +27,10 @@ get_header();
                                         <?php
                                             if (has_post_thumbnail()) {
 
-                                                $post_thumnail_url = get_the_post_thumbnail_url(null, "large");
+                                                //$post_thumnail_url = get_the_post_thumbnail_url(null, "large");
                                                 // printf('<a href="%s" data-featherlight="image">', $post_thumnail_url);
-                                                echo '<a href=" '.$post_thumnail_url.' " data-featherlight="image" > ';
+                                                // echo '<a href=" '.$post_thumnail_url.' " data-featherlight="image" > ';
+                                                echo '<a class="popup" href="#" data-featherlight="image" > ';
                                                 the_post_thumbnail("large", array("class" => "img-fluid"));
 
                                                 echo '</a>';
@@ -40,7 +41,7 @@ get_header();
                                     <p>
                                         <?php
                                             the_content();
-                                            ?>
+                                        ?>
                                     </p>
                                 </div>
 

@@ -34,7 +34,9 @@ get_header();
                         <p>
                             <?php
                             if(has_post_thumbnail()){
-                                the_post_thumbnail("large",array("class"=>"img-fluid")); 
+                                echo '<a class="popup" href="#" data-featherlight="image" > ';
+                                the_post_thumbnail("large", array("class" => "img-fluid"));
+                                echo '</a>';   
                             }
                             ?>                      
                         </p>
@@ -42,10 +44,7 @@ get_header();
                         <p>
                             
                             <?php
-                          
                                 the_excerpt();
-                         
-                            
                             ?>
                         </p>
                     </div>
