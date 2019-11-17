@@ -26,7 +26,13 @@ get_header();
                                     <p>
                                         <?php
                                             if (has_post_thumbnail()) {
+
+                                                $post_thumnail_url = get_the_post_thumbnail_url(null, "large");
+                                                // printf('<a href="%s" data-featherlight="image">', $post_thumnail_url);
+                                                echo '<a href=" '.$post_thumnail_url.' " data-featherlight="image" > ';
                                                 the_post_thumbnail("large", array("class" => "img-fluid"));
+
+                                                echo '</a>';
                                             }
                                             ?>
                                     </p>
@@ -58,10 +64,10 @@ get_header();
             </div>
         </div>
         <div class="col-md-4">
-            <?php 
-              if(is_active_sidebar('sidebar-1')){
-                  dynamic_sidebar("sidebar-1");
-              }
+            <?php
+            if (is_active_sidebar('sidebar-1')) {
+                dynamic_sidebar("sidebar-1");
+            }
             ?>
         </div>
 

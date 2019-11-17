@@ -1,1 +1,1 @@
-comple widgets registration past 
+Complete menu register and display exact position 
