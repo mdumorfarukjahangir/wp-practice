@@ -17,6 +17,7 @@ function alpha_setup(){
     add_theme_support( 'title-tag' );
     register_nav_menu("topmenu", __("Top menu","alpha"));
     register_nav_menu("footermenu", __("Footer menu","alpha"));
+    add_theme_support( 'post-formats', array( 'aside', 'gallery','image','audio','video' ) );
 
     
 }
