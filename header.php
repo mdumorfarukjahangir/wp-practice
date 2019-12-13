@@ -2,13 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello Dolly</title>
+    <title><?php bloginfo( 'name' ); ?></title>
     <?php 
     wp_head();
     ?>
 </head>
-<body <?php body_class(); ?>>
-<?php 
-    get_template_part('hero');
-?>
 
