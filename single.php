@@ -48,26 +48,41 @@ get_header();
                                         ?>
                                     </p>
                                 </div>
+                           
                                 <div class="text-center">
-                                 
-                                 <?php 
-                                   if(get_field('camera_model')){
-                                      echo "Camera Model : ".get_field('camera_model')."<br>";
-                                      echo "Location  : ".get_field('location')."<br>";
-                                      echo "Date  : ".get_field('date')."<br>";
-                                      echo "Licensed Information : ".get_field('licensed_information_')."<br>";
-                                      echo "Image : ".wp_get_attachment_image(get_field('image'),'medium')."<br>";
+                                <?php 
+                                  if(get_post_format() == 'image' && class_exists('CMB2')){
+                                      $alpha_camera_model = get_post_meta(get_the_ID(),'alpha_camera_model',true);
+                                      $alpha_location = get_post_meta(get_the_ID(),'alpha_location',true);
+                                      $alpha_date = get_post_meta(get_the_ID(),'alpha_date',true);
+                                      $alpha_licensed = get_post_meta(get_the_ID(),'alpha_licensed',true);
+                                      $alpha_licensed_information = get_post_meta(get_the_ID(),'alpha_licensed_information',true);
+                                  }
+                                    ?>
+                                    <h1>
+                                    <strong>Camera Model :</strong> <?php echo esc_html($alpha_camera_model); ?>
+                                    </h1>
+                                    <h1>
+                                    <strong>Location:</strong> <?php echo esc_html($alpha_location); ?>
+                                    </h1>
+                                    <h1>
+                                    <strong>Date :</strong> <?php echo esc_html($alpha_date); ?>
+                                    </h1>
+                                   
+                                    <?php 
+                                      if($alpha_licensed):
+                                        ?>
 
-                                   }
-                              
-                                 ?>
-                                                                <?php
-                                    $file = get_field('file');
-                                    if( $file ):
-                                        $url = wp_get_attachment_url( $file ); ?>
-                                        <a target="_blank" href="<?php echo esc_html($url); ?>" >Download File</a>
-                                    <?php endif; ?>
+                                        <h1>
+                                        <strong>Licensec Information :</strong> <?php echo esc_html($alpha_licensed_information); ?>
+                                        </h1>
+                                      <?php 
+                                        endif;
+                                      ?>
                                 </div>
+                                
+                                 
+                         
 
                                 <?php if (comments_open()) : ?>
                                     <div class="col-md-10 offset-md-1">
