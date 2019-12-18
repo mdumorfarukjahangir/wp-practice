@@ -4,6 +4,7 @@
 add_action( 'cmb2_init', 'alpha_cmb2_metabox' );
 function alpha_cmb2_metabox() {
 
+
 	$prefix = 'alpha_';
 
 	$cmb = new_cmb2_box( array(
@@ -47,5 +48,4 @@ function alpha_cmb2_metabox() {
 			'data-conditional-value' => 'on',
 		),
 	) );
-
 }

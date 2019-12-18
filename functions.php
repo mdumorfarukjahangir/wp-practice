@@ -34,6 +34,22 @@ function alpha_assets(){
 }
 add_action("wp_enqueue_scripts", "alpha_assets");
 
+function alpha_admin_scripts($hook){
+
+    if(isset($_REQUEST['post']) || isset($_REQUEST['post_ID'])){
+        $post_id = empty($_REQUEST['post_ID']) ? $_REQUEST['post'] : $_REQUEST['post_ID'];
+    }
+   
+    if('post.php' == $hook){   // Script work only post.php page 
+    $post_format = get_post_format( $post_id );
+    wp_enqueue_script( "admin-js", get_theme_file_uri( '/assets/js/admin.js' ));
+    wp_localize_script( "admin-js", "alpha_post_format", array("format"=>$post_format) );
+
+    // Fist load disable 
+    }
+}
+add_action( 'admin_enqueue_scripts','alpha_admin_scripts' );
+
 function alpha_sidebar(){
     register_sidebar( array(
     'name'          => __( 'Right sidebar', 'alpha' ),
@@ -75,3 +91,4 @@ function alpha_nav_menu_css_class($classes, $item){
     return $classes;
 }
 add_filter("nav_menu_css_class","alpha_nav_menu_css_class", 10, 2);
+
